@@ -1,18 +1,22 @@
 
-
+//Linked List class
 public class LinkedList<T> {
 	
+	//start of linked list
 	private Node<T> head;
 
 	public LinkedList() {
 		this.head = null;
 	}
 
+	//sets head to a new node with the previous head as the next node
 	public void insertStart(T num) {
 		head = new Node<T>(num, head);
 	}
 
+	//iterates to end of linked list and puts the new node at the end
 	public void insertEnd(T num) {
+		//if the list is empty, insert at the front
 		if (head == null) {
 			insertStart(num);
 		}
@@ -25,6 +29,7 @@ public class LinkedList<T> {
 		}
 	}
 
+	//deletes first node by setting head to the next node in the linked list
 	public void deleteFirst() {
 		if (head == null)
 			return;
@@ -33,6 +38,7 @@ public class LinkedList<T> {
 		}
 	}
 
+	//deletes last node by iterating to the second to last node, then sets the next of this node to null
 	public void deleteLast() {
 		if (head == null) 
 			return;
@@ -53,6 +59,7 @@ public class LinkedList<T> {
 		head = null;
 	}
 
+	//iterates through linked list and prints the data in each node
 	public void printList() {
 		if (head == null) {
 			return;
@@ -66,6 +73,7 @@ public class LinkedList<T> {
 		}
 	}
 
+	//main function for testing
 	public static void main(String[] args) {
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		list.insertStart(2);
@@ -88,11 +96,12 @@ public class LinkedList<T> {
 
 }
 
+//Node class
 class Node<T> {
 
 	private T data;
 	private Node<T> next;
-	//private Node<T> prev;
+	
 
 	public Node(T data, Node<T> next) {
 		this.data = data;
